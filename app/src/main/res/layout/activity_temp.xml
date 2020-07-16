@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.gbridge.etners.ui.main.TempActivity"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.TempActivity">
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:paddingHorizontal="30dp"
+            android:text="결과창"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:onClick="@{activity::onGetToken}"
+            android:id="@+id/btn_get_token"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Token 주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_result" />
+
+        <Button
+            android:onClick="@{activity::onCheckToken}"
+            android:id="@+id/btn_check_token"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Token 확인해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_get_token" />
+
+        <Button
+            android:onClick="@{activity::onCheckGps}"
+            android:id="@+id/btn_check_gps"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="gps 확인해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_check_token" />
+
+        <Button
+            android:onClick="@{activity::onClockInGps}"
+            android:id="@+id/btn_clock_in_gps"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="gps로 출근해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_check_gps" />
+
+        <Button
+            android:onClick="@{activity::onClockOutGps}"
+            android:id="@+id/btn_clock_out_gps"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="gps로 퇴근해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_clock_in_gps" />
+
+        <Button
+            android:onClick="@{activity::onCheckWifi}"
+            android:id="@+id/btn_check_wifi"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="wifi 확인해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_clock_out_gps" />
+
+        <Button
+            android:onClick="@{activity::onClockInWifi}"
+            android:id="@+id/btn_clock_in_wifi"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="wifi로 출근해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_check_wifi" />
+
+        <Button
+            android:onClick="@{activity::onClockOutWifi}"
+            android:id="@+id/btn_clock_out_wifi"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="wifi로 퇴근해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_clock_in_wifi" />
+
+        <Button
+            android:onClick="@{activity::onGetStatus}"
+            android:id="@+id/btn_get_status"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="현재 상태 알려줘"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_clock_out_wifi" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
