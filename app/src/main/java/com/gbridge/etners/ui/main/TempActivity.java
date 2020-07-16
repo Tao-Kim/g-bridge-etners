@@ -251,50 +251,12 @@ public class TempActivity extends AppCompatActivity {
     }
 
     public void onCheckWifi(View v) {
-
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL("http://192.168.0.5:8888/wifi");
-                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                    con.setRequestMethod("GET");
-                    con.setDoOutput(true);
-                    con.setRequestProperty("Accept", "application/json");
-
-
-
-                    int responseCode = con.getResponseCode();
-                    Log.d(TAG, "responseCode :" + Integer.toString(responseCode));
-                    if (responseCode == HttpURLConnection.HTTP_OK) {
-                        InputStream is = con.getInputStream();
-                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                        byte[] byteBuffer = new byte[1024];
-                        byte[] byteData = null;
-                        int length = 0;
-                        while ((length = is.read(byteBuffer, 0, byteBuffer.length)) != -1) {
-                            baos.write(byteBuffer, 0, length);
-                        }
-                        byteData = baos.toByteArray();
-
-                        String response = new String(byteData);
-
-                        JSONObject responseJSON = new JSONObject(response);
-                        binding.tvResult.setText(responseJSON.toString());
-
-                    }
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        //ap = WifiUtil.getAp(this);
-        //binding.tvResult.setText(ap);
+        ap = WifiUtil.getAp(this);
+        if(ap != null){
+            binding.tvResult.setText(ap);
+        } else {
+            binding.tvResult.setText("wifi가 연결되지 않았습니다.");
+        }
     }
 
     public void onClockInWifi(View v) {
